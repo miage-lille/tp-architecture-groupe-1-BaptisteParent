@@ -10,6 +10,10 @@ type WebinarProps = {
   seats: number;
 };
 export class Webinar extends Entity<WebinarProps> {
+  get id(): string {
+    return this.props.id;
+  }
+
   isTooSoon(now: Date): boolean {
     const diff = differenceInDays(this.props.startDate, now);
     return diff < 3;
